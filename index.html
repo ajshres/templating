@@ -13,9 +13,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Stack elements vertically */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #d50000, #ffcc00, #009c4b); /* Original gradient */
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             color: #fff;
             overflow: hidden;
         }
@@ -26,8 +25,7 @@
             font-size: 3em;
             font-weight: bold;
             color: #fff;
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1.5s ease-in forwards; /* Fade in animation */
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         /* Styling for Druk Handicraft text */
@@ -35,12 +33,10 @@
             font-size: 1.5em;
             font-weight: normal;
             color: #fff;
-            margin-top: 20px; /* Increased spacing */
+            margin-top: 10px;
             letter-spacing: 2px;
-            text-transform: none; /* No capitalization */
+            text-transform: uppercase;
             font-family: 'Georgia', serif;
-            opacity: 0; /* Start hidden */
-            white-space: nowrap; /* Prevent wrapping */
         }
 
         /* Responsive scaling */
@@ -62,7 +58,7 @@
             }
         }
 
-        /* Fade-in animation */
+        /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -72,33 +68,7 @@
 <body>
     <div class="center-text">
         Coming Soon...
+        <div class="brand-name">Druk Handicraft</div>
     </div>
-    <div class="brand-name" id="drukh">
-        <!-- Druk Handicraft will be revealed here -->
-    </div>
-
-    <script>
-        const brandName = "Druk Handicraft";
-        const brandElement = document.getElementById('drukh');
-
-        // Function to reveal letters one by one
-        function revealLetters(text, element) {
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 150); // Adjust speed here (in milliseconds)
-        }
-
-        // Start revealing letters after fade-in animation
-        setTimeout(() => {
-            brandElement.style.opacity = 1; // Make brand name visible
-            revealLetters(brandName, brandElement);
-        }, 1500); // Delay to match the fade-in time
-    </script>
 </body>
 </html>
