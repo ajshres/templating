@@ -36,4 +36,69 @@
             font-weight: normal;
             color: #fff;
             margin-top: 20px; /* Increased spacing */
-  
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+            opacity: 0; /* Start hidden */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Responsive scaling */
+        @media (max-width: 768px) {
+            .center-text {
+                font-size: 2em;
+            }
+            .brand-name {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .center-text {
+                font-size: 1.5em;
+            }
+            .brand-name {
+                font-size: 1em;
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text">
+        Coming Soon...
+    </div>
+    <div class="brand-name" id="drukh">
+        <!-- Druk Handicraft will be revealed here -->
+    </div>
+
+    <script>
+        const brandName = "Druk Handicraft";
+        const brandElement = document.getElementById('drukh');
+
+        // Function to reveal letters one by one
+        function revealLetters(text, element) {
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 150); // Adjust speed here (in milliseconds)
+        }
+
+        // Start revealing letters after fade-in animation
+        setTimeout(() => {
+            brandElement.style.opacity = 1; // Make brand name visible
+            revealLetters(brandName, brandElement);
+        }, 1500); // Delay to match the fade-in time
+    </script>
+</body>
+</html>
