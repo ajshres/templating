@@ -25,7 +25,8 @@
             font-size: 3em;
             font-weight: bold;
             color: #fff;
-            animation: fadeIn 1.5s ease-in-out;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 1.5s ease-in forwards; /* Fade in animation */
         }
 
         /* Styling for Druk Handicraft text */
@@ -37,6 +38,13 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-family: 'Georgia', serif;
+            opacity: 0; /* Start hidden */
+            animation: reveal 1.5s ease-in forwards; /* Letter reveal animation */
+            animation-delay: 1.5s; /* Delay for fade-in effect */
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+            width: 0; /* Start with zero width */
+            animation-fill-mode: forwards; /* Keep final state */
         }
 
         /* Responsive scaling */
@@ -58,17 +66,48 @@
             }
         }
 
-        /* Animation */
+        /* Fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        /* Reveal animation for letter-by-letter effect */
+        @keyframes reveal {
+            0% { width: 0; }
+            100% { width: 100%; }
         }
     </style>
 </head>
 <body>
     <div class="center-text">
         Coming Soon...
-        <div class="brand-name">Druk Handicraft</div>
     </div>
+    <div class="brand-name">
+        <span id="drukh" style="display: inline-block;"></span>
+    </div>
+
+    <script>
+        const brandName = "Druk Handicraft";
+        const brandElement = document.getElementById('drukh');
+
+        // Function to reveal letters one by one
+        function revealLetters(text, element) {
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 150); // Adjust speed here (in milliseconds)
+        }
+
+        // Start revealing letters after fade-in animation
+        setTimeout(() => {
+            revealLetters(brandName, brandElement);
+        }, 1500); // Delay to match the fade-in time
+    </script>
 </body>
 </html>
