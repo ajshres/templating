@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            background: linear-gradient(135deg, #d50000, #ffcc00, #009c4b); /* Red, Gold, Green gradient */
             color: #fff;
             overflow: hidden;
         }
@@ -39,12 +39,7 @@
             text-transform: uppercase;
             font-family: 'Georgia', serif;
             opacity: 0; /* Start hidden */
-            animation: reveal 1.5s ease-in forwards; /* Letter reveal animation */
-            animation-delay: 1.5s; /* Delay for fade-in effect */
             white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow */
-            width: 0; /* Start with zero width */
-            animation-fill-mode: forwards; /* Keep final state */
         }
 
         /* Responsive scaling */
@@ -71,20 +66,14 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        /* Reveal animation for letter-by-letter effect */
-        @keyframes reveal {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
     </style>
 </head>
 <body>
     <div class="center-text">
         Coming Soon...
     </div>
-    <div class="brand-name">
-        <span id="drukh" style="display: inline-block;"></span>
+    <div class="brand-name" id="drukh">
+        <!-- Druk Handicraft will be revealed here -->
     </div>
 
     <script>
@@ -106,6 +95,7 @@
 
         // Start revealing letters after fade-in animation
         setTimeout(() => {
+            brandElement.style.opacity = 1; // Make brand name visible
             revealLetters(brandName, brandElement);
         }, 1500); // Delay to match the fade-in time
     </script>
