@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@import url("./custom/variables.css");
+@import url("./custom/base.css");
+/* @import url("./custom/navigation.css"); */
+
+/* COMPONENT */
+@import url("./components/buttons/button.css");
+@import url("./components/banner.css");
+@import url("./components/expectation-card.css");
+@import url("./components/input-group.css");
+@import url("./utilities/text-clamp.css");
+@import url("./utilities/bg-cover.css");
+
+@import url("./layout/header.css");
+@import url("./layout/section.css");
+@import url("./layout/footer.css");
